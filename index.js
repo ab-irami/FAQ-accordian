@@ -1,9 +1,18 @@
 
+const imgBtn = document.querySelectorAll(".arrow-img");
+const details = document.querySelectorAll("details");
+const entireDiv = document.querySelectorAll("div");
+const summary = document.querySelectorAll("summary");
 
-$("div").click(function(){
-    var clickedDiv = $(this).attr("id");
-    $("#" + clickedDiv + " summary").toggleClass("bold-text");
-    $("#" + clickedDiv + " .arrow-img").toggleClass("rotated-img");
-}); 
+for (let i = 0; i < entireDiv.length; i++) {
+    imgBtn[i].addEventListener("click", function(){
+        details[i].toggleAttribute("open");
+        imgBtn[i].classList.toggle("rotated-img");
+        summary[i].classList.toggle("bold-text");
+    });  
 
-
+    details[i].addEventListener("click", function(){
+        imgBtn[i].classList.toggle("rotated-img");
+        summary[i].classList.toggle("bold-text");
+    });
+}
